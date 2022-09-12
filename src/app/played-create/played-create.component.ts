@@ -62,6 +62,23 @@ export class PlayedCreateComponent implements OnInit {
     this.songService.updateSong(this.song);
   }
 
+  updatePlayedEntry(newNote: string, newPlayedDate: any, pos: number){
+    let temp : Date = new Date();
+    temp.toLocaleString('en-US', { timeZone: 'America/New_York' });
+    let tempMonth = parseInt(newPlayedDate.toISOString().slice(5,7)) - 1;
+    temp.setFullYear(newPlayedDate.toISOString().slice(0,4),tempMonth,newPlayedDate.toISOString().slice(8,10));
+    let newSeries: string = "";
+    this.series?.forEach((value, i) => {
+      if(value.nativeElement.value.length>0) {
+        if(i > 0 && value.nativeElement.value.trim().length > 0) {
+          newSeries = newSeries.concat(", ");
+        }
+        newSeries = newSeries.concat(value.nativeElement.value.trim());
+      }
+    });
+    this.song.getPlayed()[pos] = new Played(temp.toISOString().slice(0,10),newNote,newSeries);
+    this.songService.updateSong(this.song);
+  }
 
   createNewPlayedEntry(newNote: string, newPlayedDate: any){
     let temp : Date = new Date();
