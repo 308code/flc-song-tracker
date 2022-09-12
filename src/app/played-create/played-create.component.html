@@ -28,13 +28,14 @@
       <input class="col-1" id="date_played_id_enabled" #played type="date" [value]="playedDate.toISOString().slice(0,10)">
   </div>
   <div class="button-div">
-    <button type="button" class="btn btn-danger" [routerLink]="['/']"  (click)="deletePlayedEntry(selectedPlayedSong)">Delete</button>
     <button type="button" class="btn btn-primary" [routerLink]="['/']"  (click)="createNewPlayedEntry(note.value,played.valueAsDate)">Create</button>
+    <button type="button" class="btn btn-info" [routerLink]="['/']"  (click)="updatePlayedEntry(note.value,played.valueAsDate,selectedPlayedSong)">Update</button>
+    <button type="button" class="btn btn-danger" [routerLink]="['/']"  (click)="deletePlayedEntry(selectedPlayedSong)">Delete</button>
     <button type="button" class="btn btn-secondary" [routerLink]="['/']">Cancel</button>
   </div>
   </div>
   <hr/>
-  <h6>Select row below to pre-fill new entry being created!</h6>
+  <h6>Select row below to pre-fill entry being created, modified or deleted!</h6>
   <div class="table-div">
     <table class="table table-striped">
       <thead>
