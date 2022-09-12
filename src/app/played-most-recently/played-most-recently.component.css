@@ -1,0 +1,42 @@
+.outside-div{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recent-songs-played-list-div{
+  margin-top: -0.5rem;
+  max-height: 30rem;
+  margin-right: .4rem;
+  margin-left: .4rem;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+a{
+  text-decoration: none;
+}
+
+.header{
+  position: sticky;
+  top: 0;
+  background-color: #0e437c;
+  color: #efcf6d;
+}
+
+h4{
+  padding-top: 1rem;
+  padding-bottom: 0.15rem;
+  text-align: center;
+  color: #c12828;
+}
+
+hr{
+  margin-top: 1rem;
+  border: none;
+  height: 2px;
+  background-color: #c12828;
+}
+
+.series{
+  color: rgba(104, 152, 88, 0.96);
+}

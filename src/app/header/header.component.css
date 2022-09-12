@@ -1,0 +1,42 @@
+#header-div{
+  height: 6.0rem;
+  max-width: 100%;
+  background-color: #009AD8;
+}
+
+.outside-div{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img{
+  margin-top: 1.5rem;
+  margin-left: 0.5rem;
+  height: 3.0rem;
+}
+
+#header-links{
+  float: right;
+  padding-top: 4.0rem;
+}
+
+.header-links{
+  margin-right: 1.5rem;
+}
+
+a{
+  text-decoration: none;
+  font-size: 1.35rem;
+  color: #e1e3ea;
+}
+
+a:hover{
+  text-decoration: none;
+  color: #012246;
+}
+
+a:visited{
+  text-decoration: none;
+  color: #efd296;
+}
+
