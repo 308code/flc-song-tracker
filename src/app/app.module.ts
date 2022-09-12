@@ -6,15 +6,20 @@ import { HeaderComponent } from './header/header.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { PlayedMostRecentlyComponent } from './played-most-recently/played-most-recently.component';
+import { PlayedCreateComponent } from './played-create/played-create.component';
 
 const appRoutes: Routes =  [
-  { path: 'header' , component: HeaderComponent}
+  { path: '' , component: PlayedMostRecentlyComponent},
+  { path: 'songs/played/:id' , component: PlayedCreateComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    PlayedMostRecentlyComponent,
+    PlayedCreateComponent
   ],
   imports: [
     BrowserModule,

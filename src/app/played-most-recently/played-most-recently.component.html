@@ -1,0 +1,26 @@
+<div class="outside-div">
+  <h4>Recent Songs Played</h4>
+  <div class="recent-songs-played-list-div">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col" class="header col-2">Title</th>
+        <th scope="col" class="header col-2">Artist</th>
+        <th scope="col" class="header col-3">Aka</th>
+        <th scope="col" class="header col-1">Played</th>
+        <th scope="col" class="header col-4">Series</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let song of songs">
+        <th><a routerLink="/songs/played/{{song.getId()}}" title="Add a played instance for {{song.getTitle()}}"> {{song.getTitle()}}</a></th>
+        <td>{{song.getArtist()}}</td>
+        <td>{{song.getAka()}}</td>
+        <td>{{song.getPlayed()[song.getPlayed().length - 1].getDatePlayed().toISOString().slice(0, 10)}}</td>
+        <td><div class="series">{{song.getPlayed()[song.getPlayed().length - 1].getSeries()}}</div></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr/>
+</div>

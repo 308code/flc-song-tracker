@@ -1,0 +1,104 @@
+input{
+  width: 40rem;
+  margin-bottom: 0.5rem;
+}
+label{
+  margin-right: 0.3rem;
+}
+
+.outside-div{
+  margin-left: auto;
+  margin-right: auto;
+}
+/*#{*/
+/*  width: 55rem;*/
+/*  margin-right: auto;*/
+.table-div{
+  width: 60rem;
+  margin-top: -0.5rem;
+  max-height: 15rem;
+  margin-right: auto;
+  margin-left: auto;
+  /*margin-right: .4rem;*/
+  /*margin-left: 20rem;*/
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.main-content-div{
+  width: 100rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+a{
+  text-decoration: none;
+}
+
+.header{
+  position: sticky;
+  top: 0;
+  background-color: #0e437c;
+  color: #efcf6d;
+}
+
+h4{
+  padding-top: 1rem;
+  padding-bottom: 0.15rem;
+  text-align: center;
+  color: #c12828;
+}
+
+h6{
+  padding-top: 1rem;
+  padding-bottom: 0.15rem;
+  text-align: center;
+  color: #4074ab;
+}
+
+hr{
+  margin-top: 1rem;
+  border: none;
+  height: 2px;
+  background-color: #c12828;
+  width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.series{
+  color: rgba(104, 152, 88, 0.96);
+}
+.series_input_enabled{
+  width: 3rem;
+  margin-right: .5rem;
+  text-align: center;
+}
+
+#date_played_id_enabled{
+  width: 9rem;
+}
+#notes_id_enabled{
+  width: 29rem;
+}
+.series_div{
+  margin-left: -0.8rem;
+}
+.note-and-date-enabled{
+  background-color: #efd296;
+}
+.row{
+  margin-bottom: 0.5rem;
+}
+
+.input-radio{
+  max-width: 1rem;
+}
+
+.button-div{
+  margin-left: 40rem;
+}
+button{
+  margin-right: .5rem;
+}
+
+

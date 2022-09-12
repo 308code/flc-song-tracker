@@ -1,0 +1,61 @@
+<div class="outside-div">
+  <div class="main-content-div">
+  <h4>Create a New Played Entry</h4>
+  <div class="row">
+    <label class="col-md-3 col-2 text-end" for="title_id_dis">Title:</label>
+    <input class="cols-5" disabled id="title_id_dis" type="text" [defaultValue]=song.getTitle()>
+  </div>
+  <div class="row">
+  <label class="col-md-3 col-2 text-end" for="artist_id_dis">Artist:</label>
+  <input class="cols-5" disabled id="artist_id_dis" type="text" [defaultValue]=song.getArtist()>
+  </div>
+  <div class="row">
+  <label class="col-md-3 col-2 text-end" for="aka_id_dis" title="Also Known As">aka:</label>
+  <input class="cols-5" disabled id="aka_id_dis" type="text" [defaultValue]=song.getAka()>
+</div>
+
+  <div class="row">
+  <label class="col-md-3 text-end">Series:</label>
+    <div class="col-6 series_div">
+      <input *ngFor="let pos of position; index as i" class="series_input_enabled" #series_id
+             id="series_id_enabled_{{pos}}" type="text" [value]="selectedSeries[i]" >
+    </div>
+  </div>
+  <div class="row">
+    <label class="col-md-3 text-end" for="notes_id_enabled">Notes:</label>
+    <input class="col-3" id="notes_id_enabled" #note type="text" [value]="notes">
+      <label class="col-md-1 text-end"  for="date_played_id_enabled">Date Played:</label>
+      <input class="col-1" id="date_played_id_enabled" #played type="date" [value]="playedDate.toISOString().slice(0,10)">
+  </div>
+  <div class="button-div">
+    <button type="button" class="btn btn-danger" [routerLink]="['/']"  (click)="deletePlayedEntry(selectedPlayedSong)">Delete</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['/']"  (click)="createNewPlayedEntry(note.value,played.valueAsDate)">Create</button>
+    <button type="button" class="btn btn-secondary" [routerLink]="['/']">Cancel</button>
+  </div>
+  </div>
+  <hr/>
+  <h6>Select row below to pre-fill new entry being created!</h6>
+  <div class="table-div">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col" class="header col-1"></th>
+        <th scope="col" class="header col-2">Date Played</th>
+        <th scope="col" class="header col-2">Series</th>
+        <th scope="col" class="header col-3">Notes</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let played of song.getPlayed(); index as i">
+        <td><input class="input-radio" [checked]="i===0" (change)="updateSeries(i)" #playedCheckbox name="playedCheckbox" type="radio" value="{{position[i]}}"></td>
+        <td>{{played.getDatePlayed().toISOString().slice(0,10)}}</td>
+        <td>{{played.getSeries()}}</td>
+        <td>{{played.getNotes()}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br/>
+
+</div>
