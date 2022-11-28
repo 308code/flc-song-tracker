@@ -8,10 +8,12 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { PlayedMostRecentlyComponent } from './played-most-recently/played-most-recently.component';
 import { PlayedCreateComponent } from './played-create/played-create.component';
+import { SongCreateComponent } from './song-create/song-create.component';
 
 const appRoutes: Routes =  [
   { path: '' , component: PlayedMostRecentlyComponent},
-  { path: 'songs/played/:id' , component: PlayedCreateComponent}
+  { path: 'songs/played/:id' , component: PlayedCreateComponent},
+  { path: 'songs/create', component: SongCreateComponent}
 ]
 
 @NgModule({
@@ -19,7 +21,8 @@ const appRoutes: Routes =  [
     AppComponent,
     HeaderComponent,
     PlayedMostRecentlyComponent,
-    PlayedCreateComponent
+    PlayedCreateComponent,
+    SongCreateComponent
   ],
   imports: [
     BrowserModule,

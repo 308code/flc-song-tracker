@@ -27,16 +27,71 @@ export class SongService {
         return songs;
       }));
   }
+  getAllSongsWithinDates(from: Date, to: Date): Observable<Song[]>{
+    let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs/' + from.toISOString().slice(0,10)+'/'+ to.toISOString().slice(0,10);
+    return this.http.get<SongInterface[]>(url)
+      .pipe(map( responseData => {
+        let songs: Song[] = [];
+        responseData.forEach( song => {
+          let p: Played[] = [];
+          song.played.forEach( timePlayed => {
+            p.push(new Played(timePlayed.datePlayed.toString().slice(0,10),timePlayed.notes,timePlayed.series));
+          });
+          songs.push(new Song(song.id,song.title,song.artist,song.aka,p));
+        });
+        return songs;
+      }));
+  }
 
   getSongById(id: string): Observable<Song>{
     let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs/' + id;
     return  this.http.get<SongInterface>(url)
       .pipe(map(responseData => {
         let p: Played[] = [];
-        responseData.played.forEach(play => {
-          p.push(new Played(play.datePlayed.toString().slice(0,10),play.notes,play.series));
-        });
-        return new Song(responseData.id,responseData.title,responseData.artist,responseData.aka,p);
+        if(responseData) {
+          responseData.played.forEach(play => {
+            p.push(new Played(play.datePlayed.toString().slice(0, 10), play.notes, play.series));
+          });
+          return new Song(responseData.id, responseData.title, responseData.artist, responseData.aka, p);
+        }else{
+          return new Song();
+        }
+      }));
+  }
+
+  getSongByTitle(title: string): Observable<Song[]>{
+    let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs/title/' + title;
+    return this.http.get<SongInterface[]>(url)
+      .pipe(map( responseData => {
+        let songs: Song[] = [];
+        if(responseData) {
+          responseData.forEach(song => {
+            let p: Played[] = [];
+            song.played.forEach(timePlayed => {
+              p.push(new Played(timePlayed.datePlayed.toString().slice(0, 10), timePlayed.notes, timePlayed.series));
+            });
+            songs.push(new Song(song.id, song.title, song.artist, song.aka, p));
+          });
+        }
+        return songs;
+      }));
+  }
+
+  getSongsByArtist(title: string): Observable<Song[]>{
+    let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs/artist/' + title;
+    return this.http.get<SongInterface[]>(url)
+      .pipe(map( responseData => {
+        let songs: Song[] = [];
+        if(responseData) {
+          responseData.forEach(song => {
+            let p: Played[] = [];
+            song.played.forEach(timePlayed => {
+              p.push(new Played(timePlayed.datePlayed.toString().slice(0, 10), timePlayed.notes, timePlayed.series));
+            });
+            songs.push(new Song(song.id, song.title, song.artist, song.aka, p));
+          });
+        }
+        return songs;
       }));
   }
 
@@ -50,6 +105,22 @@ export class SongService {
       console.log("error!");
     });
     console.log("I'm after the push!");
+  }
+
+  public createSong(title: string, artist: string, aka : string) {
+    let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs';
+    console.log("url = " + url);
+    let akaArray = aka.split(",");
+    let playedArray : Played[] = [];
+    let song = new Song("",title, artist, akaArray,playedArray);
+    console.log(song);
+    console.log(url);
+    this.http.post(url, song).subscribe(() => {
+      console.log("success!");
+    }, () => {
+      console.log("error!");
+    });
+    console.log("I'm after the push for create song!");
   }
 
 }

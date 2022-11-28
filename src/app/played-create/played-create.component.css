@@ -75,7 +75,7 @@ hr{
 }
 
 #date_played_id_enabled{
-  width: 9rem;
+  width: 10rem;
 }
 #notes_id_enabled{
   width: 29rem;
@@ -95,7 +95,7 @@ hr{
 }
 
 .button-div{
-  margin-left: 40rem;
+  text-align: center;
 }
 button{
   margin-right: .5rem;

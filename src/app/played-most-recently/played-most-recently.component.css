@@ -1,3 +1,7 @@
+#date_played_id_enabled{
+  width: 400px;
+}
+
 .outside-div{
   margin-left: auto;
   margin-right: auto;
@@ -24,6 +28,7 @@ a{
 }
 
 h4{
+  margin-top: 1rem;
   padding-top: 1rem;
   padding-bottom: 0.15rem;
   text-align: center;
@@ -39,4 +44,38 @@ hr{
 
 .series{
   color: rgba(104, 152, 88, 0.96);
+}
+label{
+  margin-right: .25rem;
+}
+#filterByPlayedDateButton{
+  margin-left: 1rem;
+}
+
+.filterDiv{
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.filterByTitleDiv{
+  margin-top: 1rem;
+  margin-left: 20px;
+  height: 4rem;
+  text-align: center;
+}
+.filterByArtistDiv{
+  margin-top: 1rem;
+  height: 4rem;
+  text-align: center;
+}
+.filterByDatesDiv{
+  margin-top: 1rem;
+  height: 4rem;
+  text-align: center;
+}
+
+h6{
+  color: #b97070;
+}
+button{
+  margin-top: .25rem;
 }
