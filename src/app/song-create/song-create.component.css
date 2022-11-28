@@ -1,0 +1,21 @@
+label{
+  padding-right: .2rem;
+  align-content: end;
+}
+input{
+  margin-bottom: .2rem;
+}
+.series_input_enabled{
+  width: 3rem;
+  margin-right: .25Rem;
+}
+.button-div{
+  text-align: center;
+}
+.page-title{
+  text-align: center;
+  color: #c12828;
+}
+.title-width{
+  width: 40rem;
+}

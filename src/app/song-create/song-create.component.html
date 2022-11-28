@@ -1,0 +1,36 @@
+<div class="row">
+  <div>
+    <div class="row"><h4 class="page-title">Create a New Song</h4></div>
+
+    <div class="row">
+      <label class="col-1 offset-md-2" for="title_id_dis">Title:</label>
+      <input class="title-width" id="title_id_dis" #title type="text">
+    </div>
+    <div>
+      <label class="col-md-3 col-2 text-end" for="artist_id_dis">Artist:</label>
+      <input class="cols-5"  id="artist_id_dis" #artist type="text">
+    </div>
+    <div>
+      <label class="col-md-3 col-2 text-end" for="aka_id_dis" title="Also Known As">aka:</label>
+      <input class="cols-5"  id="aka_id_dis" #aka type="text">
+    </div>
+    <div class="row">
+      <label class="col-md-3 text-end">Series:</label>
+      <div class="col-6">
+        <input *ngFor="let item of [].constructor(70); let i = index;" class="series_input_enabled" #series_id
+               id="series_id_enabled_{{i}}" type="text" [value]="" >
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3 text-end" for="notes_id_enabled">Notes:</label>
+      <input class="col-3" id="notes_id_enabled" #note type="text" [value]="">
+      <label class="col-md-1 text-end"  for="date_played_id_enabled">Date Played:</label>
+      <input class="col-1" id="date_played_id_enabled" #played type="date" [value]="today.toISOString().slice(0,10)">
+    </div>
+  </div>
+
+  <div class="button-div">
+    <button type="button" class="btn btn-primary" [routerLink]="['/']"  (click)="createNewSong(title.value,artist.value, aka.value)">Create</button>
+    <button type="button" class="btn btn-secondary" [routerLink]="['/']">Cancel</button>
+  </div>
+</div>

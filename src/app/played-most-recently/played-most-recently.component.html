@@ -1,4 +1,30 @@
 <div class="outside-div">
+  <div class="row filterDiv">
+    <div class="col-4 filterByTitleDiv">
+      <h6>Filter By Title</h6>
+      <label id="titleLabel">Title:</label>
+      <input id="titleInput" #t type="text"  [value]="title" />
+      <br>
+      <button id="filterByTitleButton" (click)="filterByTitle(t.value)">Filter Results</button>
+    </div>
+    <div class="col-3 filterByArtistDiv">
+      <h6>Filter By Artist</h6>
+      <label id="artistLabel">Artist:</label>
+      <input id="artistInput" #a type="text" [value]="artist" />
+      <br>
+      <button id="filterByArtistButton" (click)="filterByArtist(a.value)">Filter Results</button>
+    </div>
+    <div class="col-4 filterByDatesDiv">
+      <h6>Filter By Most Recent Date Played</h6>
+      <label id="fromDateLabel">From:</label>
+      <input id="fromDateInput" #fdi type="date" value="{{fromDate.toISOString().slice(0,10)}}"/>
+      <label id="toDateLabel">&nbsp;&nbsp;&nbsp;&nbsp;To:</label>
+      <input id="toDateInput" #tdi type="date" value="{{toDate.toISOString().slice(0,10)}}"/>
+      <br>
+      <button id="filterByPlayedDateButton" (click)="filterByDate(fdi.valueAsDate,tdi.valueAsDate)">Filter Results
+      </button>
+    </div>
+  </div>
   <h4>Recent Songs Played</h4>
   <div class="recent-songs-played-list-div">
     <table class="table table-striped">
@@ -16,8 +42,9 @@
         <th><a routerLink="/songs/played/{{song.getId()}}" title="Add a played instance for {{song.getTitle()}}"> {{song.getTitle()}}</a></th>
         <td>{{song.getArtist()}}</td>
         <td>{{song.getAka()}}</td>
-        <td>{{song.getPlayed()[song.getPlayed().length - 1].getDatePlayed().toISOString().slice(0, 10)}}</td>
-        <td><div class="series">{{song.getPlayed()[song.getPlayed().length - 1].getSeries()}}</div></td>
+        <td><div *ngIf="song.getPlayed().length > 0; else elseBlock" >{{song.getPlayed()[song.getPlayed().length - 1].getDatePlayed().toISOString().slice(0, 10)}}</div></td>
+        <td><div class="series" *ngIf="song.getPlayed().length > 0; else elseBlock">{{song.getPlayed()[song.getPlayed().length - 1].getSeries()}}</div></td>
+        <ng-template #elseBlock></ng-template>
       </tr>
       </tbody>
     </table>
