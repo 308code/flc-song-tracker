@@ -1,21 +1,39 @@
 label{
-  padding-right: .2rem;
-  align-content: end;
+  text-align: end;
 }
-input{
+input, textarea{
   margin-bottom: .2rem;
 }
 .series_input_enabled{
   width: 3rem;
   margin-right: .25Rem;
 }
-.button-div{
-  text-align: center;
+.series_div{
+  margin-left: -.7rem;
 }
 .page-title{
   text-align: center;
   color: #c12828;
 }
-.title-width{
+.title-input{
   width: 40rem;
 }
+
+.artist-input{
+  width: 20rem;
+}
+
+.aka-input{
+  width: 40rem;
+}
+
+.datePlayedLabel{
+  margin-left: 3.5rem;
+}
+button{
+  margin-right: .2rem;
+}
+.button-div{
+  margin-top: .5rem;
+}
+
