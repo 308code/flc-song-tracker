@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Song} from "../model/song.model";
 import {SongService} from "../service/song.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Played} from "../model/played.model";
 
 @Component({
@@ -88,7 +88,7 @@ export class PlayedCreateComponent implements OnInit {
   @ViewChild('series_id_67') series_67: ElementRef | undefined;
   @ViewChild('series_id_68') series_68: ElementRef | undefined;
   @ViewChild('series_id_69') series_69: ElementRef | undefined;
-  constructor(private songService: SongService, private route: ActivatedRoute) {
+  constructor(private songService: SongService, private route: ActivatedRoute, private router: Router) {
     this.today.toLocaleString('en-US', { timeZone: 'America/New_York' });
     this.playedDate.toLocaleString('en-US', { timeZone: 'America/New_York' });
   }
@@ -128,6 +128,10 @@ export class PlayedCreateComponent implements OnInit {
     this.song.getPlayed().splice(pos,1);
     console.log(" AFTER = " + JSON.stringify(this.song.getPlayed()));
     this.songService.updateSong(this.song);
+    this.router.navigate(['/'])
+      .then(() => {
+        window.location.reload();
+      });
   }
 
   private isFirstEntry(incoming: string) : string{
@@ -357,6 +361,10 @@ export class PlayedCreateComponent implements OnInit {
 
     this.song.getPlayed()[pos] = new Played(temp.toISOString().slice(0,10),newNote,newSeries);
     this.songService.updateSong(this.song);
+    this.router.navigate(['/'])
+      .then(() => {
+        window.location.reload();
+      });
   }
 
   createNewPlayedEntry(newNote: string, newPlayedDate: any){
@@ -586,5 +594,9 @@ export class PlayedCreateComponent implements OnInit {
     // });
     this.song.getPlayed().push(new Played(temp.toISOString().slice(0,10),newNote,newSeries));
     this.songService.updateSong(this.song);
+    this.router.navigate(['/'])
+      .then(() => {
+        window.location.reload();
+      });
   }
 }

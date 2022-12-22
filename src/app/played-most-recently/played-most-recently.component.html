@@ -43,7 +43,7 @@
         <td>{{song.getArtist()}}</td>
         <td>{{song.getAka()}}</td>
         <td><div *ngIf="song.getPlayed().length > 0; else elseBlock" >{{song.getPlayed()[song.getPlayed().length - 1].getDatePlayed().toISOString().slice(0, 10)}}</div></td>
-        <td><div class="series" *ngIf="song.getPlayed().length > 0; else elseBlock">{{song.getPlayed()[song.getPlayed().length - 1].getSeries()}}</div></td>
+        <td><div class="series" *ngIf="song.getPlayed().length > 0; else elseBlock">{{song.getPlayed()[0].getSeries()}}</div></td>
         <ng-template #elseBlock></ng-template>
       </tr>
       </tbody>

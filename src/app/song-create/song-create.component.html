@@ -1,36 +1,117 @@
-<div class="row">
-  <div>
+
+
     <div class="row"><h4 class="page-title">Create a New Song</h4></div>
 
     <div class="row">
       <label class="col-1 offset-md-2" for="title_id_dis">Title:</label>
-      <input class="title-width" id="title_id_dis" #title type="text">
-    </div>
-    <div>
-      <label class="col-md-3 col-2 text-end" for="artist_id_dis">Artist:</label>
-      <input class="cols-5"  id="artist_id_dis" #artist type="text">
-    </div>
-    <div>
-      <label class="col-md-3 col-2 text-end" for="aka_id_dis" title="Also Known As">aka:</label>
-      <input class="cols-5"  id="aka_id_dis" #aka type="text">
+      <input class="col-8" id="title_id_dis" #title type="text">
     </div>
     <div class="row">
-      <label class="col-md-3 text-end">Series:</label>
-      <div class="col-6">
-        <input *ngFor="let item of [].constructor(70); let i = index;" class="series_input_enabled" #series_id
-               id="series_id_enabled_{{i}}" type="text" [value]="" >
+      <label class="col-1 offset-md-2" for="artist_id_dis">Artist:</label>
+      <input class="col-6"  id="artist_id_dis" #artist type="text">
+    </div>
+    <div class="row">
+      <label class="col-2 offset-md-1" for="aka_id_dis" title="Also Known As">Also Known As:</label>
+      <input class="col-8"  id="aka_id_dis" #aka type="text" placeholder="aka, aka1, aka2">
+    </div>
+    <div class="row">
+      <label class="col-1 offset-md-2">Series:</label>
+      <div class="col-8 series_div">
+        <input #series_01 id="series_id_enabled_01" class="series_input_enabled" type="text" [value]="">
+        <input #series_02 id="series_id_enabled_02" class="series_input_enabled" type="text" [value]="">
+        <input #series_03 id="series_id_enabled_03" class="series_input_enabled" type="text" [value]="">
+        <input #series_04 id="series_id_enabled_04" class="series_input_enabled" type="text" [value]="">
+        <input #series_05 id="series_id_enabled_05" class="series_input_enabled" type="text" [value]="">
+        <input #series_06 id="series_id_enabled_06" class="series_input_enabled" type="text" [value]="">
+        <input #series_07 id="series_id_enabled_07" class="series_input_enabled" type="text" [value]="">
+        <input #series_08 id="series_id_enabled_08" class="series_input_enabled" type="text" [value]="">
+        <input #series_09 id="series_id_enabled_09" class="series_input_enabled" type="text" [value]="">
+        <input #series_10 id="series_id_enabled_10" class="series_input_enabled" type="text" [value]="">
+        <input #series_11 id="series_id_enabled_11" class="series_input_enabled" type="text" [value]="">
+        <input #series_12 id="series_id_enabled_12" class="series_input_enabled" type="text" [value]="">
+        <input #series_13 id="series_id_enabled_13" class="series_input_enabled" type="text" [value]="">
+        <input #series_14 id="series_id_enabled_14" class="series_input_enabled" type="text" [value]="">
+        <input #series_15 id="series_id_enabled_15" class="series_input_enabled" type="text" [value]="">
+        <input #series_16 id="series_id_enabled_16" class="series_input_enabled" type="text" [value]="">
+        <input #series_17 id="series_id_enabled_17" class="series_input_enabled" type="text" [value]="">
+        <input #series_18 id="series_id_enabled_18" class="series_input_enabled" type="text" [value]="">
+        <input #series_19 id="series_id_enabled_19" class="series_input_enabled" type="text" [value]="">
+        <input #series_20 id="series_id_enabled_20" class="series_input_enabled" type="text" [value]="">
+        <input #series_21 id="series_id_enabled_21" class="series_input_enabled" type="text" [value]="">
+        <input #series_22 id="series_id_enabled_22" class="series_input_enabled" type="text" [value]="">
+        <input #series_23 id="series_id_enabled_23" class="series_input_enabled" type="text" [value]="">
+        <input #series_24 id="series_id_enabled_24" class="series_input_enabled" type="text" [value]="">
+        <input #series_25 id="series_id_enabled_25" class="series_input_enabled" type="text" [value]="">
+        <input #series_26 id="series_id_enabled_26" class="series_input_enabled" type="text" [value]="">
+        <input #series_27 id="series_id_enabled_27" class="series_input_enabled" type="text" [value]="">
+        <input #series_28 id="series_id_enabled_28" class="series_input_enabled" type="text" [value]="">
+        <input #series_29 id="series_id_enabled_29" class="series_input_enabled" type="text" [value]="">
+        <input #series_30 id="series_id_enabled_30" class="series_input_enabled" type="text" [value]="">
+        <input #series_31 id="series_id_enabled_31" class="series_input_enabled" type="text" [value]="">
+        <input #series_32 id="series_id_enabled_32" class="series_input_enabled" type="text" [value]="">
+        <input #series_33 id="series_id_enabled_33" class="series_input_enabled" type="text" [value]="">
+        <input #series_34 id="series_id_enabled_34" class="series_input_enabled" type="text" [value]="">
+        <input #series_35 id="series_id_enabled_35" class="series_input_enabled" type="text" [value]="">
+        <input #series_36 id="series_id_enabled_36" class="series_input_enabled" type="text" [value]="">
+        <input #series_37 id="series_id_enabled_37" class="series_input_enabled" type="text" [value]="">
+        <input #series_38 id="series_id_enabled_38" class="series_input_enabled" type="text" [value]="">
+        <input #series_39 id="series_id_enabled_39" class="series_input_enabled" type="text" [value]="">
+        <input #series_40 id="series_id_enabled_40" class="series_input_enabled" type="text" [value]="">
+        <input #series_41 id="series_id_enabled_41" class="series_input_enabled" type="text" [value]="">
+        <input #series_42 id="series_id_enabled_42" class="series_input_enabled" type="text" [value]="">
+        <input #series_43 id="series_id_enabled_43" class="series_input_enabled" type="text" [value]="">
+        <input #series_44 id="series_id_enabled_44" class="series_input_enabled" type="text" [value]="">
+        <input #series_45 id="series_id_enabled_45" class="series_input_enabled" type="text" [value]="">
+        <input #series_46 id="series_id_enabled_46" class="series_input_enabled" type="text" [value]="">
+        <input #series_47 id="series_id_enabled_47" class="series_input_enabled" type="text" [value]="">
+        <input #series_48 id="series_id_enabled_48" class="series_input_enabled" type="text" [value]="">
+        <input #series_49 id="series_id_enabled_49" class="series_input_enabled" type="text" [value]="">
+        <input #series_50 id="series_id_enabled_50" class="series_input_enabled" type="text" [value]="">
+        <input #series_51 id="series_id_enabled_51" class="series_input_enabled" type="text" [value]="">
+        <input #series_52 id="series_id_enabled_52" class="series_input_enabled" type="text" [value]="">
+        <input #series_53 id="series_id_enabled_53" class="series_input_enabled" type="text" [value]="">
+        <input #series_54 id="series_id_enabled_54" class="series_input_enabled" type="text" [value]="">
+        <input #series_55 id="series_id_enabled_55" class="series_input_enabled" type="text" [value]="">
+        <input #series_56 id="series_id_enabled_56" class="series_input_enabled" type="text" [value]="">
+        <input #series_57 id="series_id_enabled_57" class="series_input_enabled" type="text" [value]="">
+        <input #series_58 id="series_id_enabled_58" class="series_input_enabled" type="text" [value]="">
+        <input #series_59 id="series_id_enabled_59" class="series_input_enabled" type="text" [value]="">
+        <input #series_60 id="series_id_enabled_60" class="series_input_enabled" type="text" [value]="">
+        <input #series_61 id="series_id_enabled_61" class="series_input_enabled" type="text" [value]="">
+        <input #series_62 id="series_id_enabled_62" class="series_input_enabled" type="text" [value]="">
+        <input #series_63 id="series_id_enabled_63" class="series_input_enabled" type="text" [value]="">
+        <input #series_64 id="series_id_enabled_64" class="series_input_enabled" type="text" [value]="">
+        <input #series_65 id="series_id_enabled_65" class="series_input_enabled" type="text" [value]="">
+        <input #series_66 id="series_id_enabled_66" class="series_input_enabled" type="text" [value]="">
+        <input #series_67 id="series_id_enabled_67" class="series_input_enabled" type="text" [value]="">
+        <input #series_68 id="series_id_enabled_68" class="series_input_enabled" type="text" [value]="">
+        <input #series_69 id="series_id_enabled_69" class="series_input_enabled" type="text" [value]="">
+        <input #series_70 id="series_id_enabled_70" class="series_input_enabled" type="text" [value]="">
+<!--        <input *ngFor="let item of [].constructor(70); let i = index;" class="series_input_enabled" #series_id-->
+<!--               id="series_id_enabled_{{i}}" type="text" [value]="" >-->
       </div>
     </div>
     <div class="row">
-      <label class="col-md-3 text-end" for="notes_id_enabled">Notes:</label>
-      <input class="col-3" id="notes_id_enabled" #note type="text" [value]="">
-      <label class="col-md-1 text-end"  for="date_played_id_enabled">Date Played:</label>
-      <input class="col-1" id="date_played_id_enabled" #played type="date" [value]="today.toISOString().slice(0,10)">
+      <label class="col-1 offset-md-2" for="notes_id_enabled">Notes:</label>
+      <textarea class="col-8" rows="5" cols="100" id="notes_id_enabled" #notes [value]=""></textarea>
     </div>
-  </div>
+    <div class="row">
+      <label class="col-1 offset-md-2"  for="date_played_id_enabled">Date Played:</label>
+      <input class="col-2" id="date_played_id_enabled" #played type="date" [value]="today.toISOString().slice(0,10)">
+    </div>
 
-  <div class="button-div">
-    <button type="button" class="btn btn-primary" [routerLink]="['/']"  (click)="createNewSong(title.value,artist.value, aka.value)">Create</button>
-    <button type="button" class="btn btn-secondary" [routerLink]="['/']">Cancel</button>
+  <div class="row button-div">
+    <button type="button" class="col-1 offset-5 btn btn-primary"  (click)="createNewSong(
+    title.value,artist.value, aka.value,notes.value,played.valueAsDate,series_01.value, series_02.value,series_03.value,
+    series_04.value,series_05.value,series_06.value,series_07.value,series_08.value,series_09.value,series_10.value,
+    series_11.value, series_12.value,series_13.value,series_14.value,series_15.value,series_16.value,series_17.value,
+    series_18.value,series_19.value,series_20.value,series_21.value, series_22.value,series_23.value,series_24.value,
+    series_25.value,series_26.value,series_27.value,series_28.value,series_29.value,series_30.value,series_31.value,
+    series_32.value,series_33.value,series_34.value,series_35.value,series_36.value,series_37.value,series_38.value,
+    series_39.value,series_40.value,series_41.value, series_42.value,series_43.value,series_44.value,series_45.value,
+    series_46.value,series_47.value,series_48.value,series_49.value,series_50.value,series_51.value, series_52.value,
+    series_53.value,series_54.value,series_55.value,series_56.value,series_57.value,series_58.value,series_59.value,
+    series_60.value,series_61.value, series_62.value,series_63.value,series_64.value,series_65.value,series_66.value,
+    series_67.value,series_68.value,series_69.value,series_70.value)">Create</button>
+    <button type="button" class="col-1 btn btn-secondary" [routerLink]="['/']">Cancel</button>
   </div>
-</div>
