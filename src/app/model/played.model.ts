@@ -30,7 +30,7 @@ export class Played {
 
   constructor(datePlayed: string, notes: string, series: string) {
     this.datePlayed = new Date(datePlayed);
-    this.datePlayed.toLocaleString('en-US', { timeZone: 'America/New_York' });
+    //this.datePlayed.toLocaleString('en-US', { timeZone: 'America/New_York' });
     this.notes = notes;
     this.series = series;
   }

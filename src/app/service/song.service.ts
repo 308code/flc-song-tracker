@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {Song} from "../model/song.model";
-import {environment} from "../../environments/environment";
+import {environment} from "../../environments/environment.prod";
 import {Played} from "../model/played.model";
 import {SongInterface} from "../model/songInterface";
 import {Router} from "@angular/router";
@@ -14,7 +14,7 @@ export class SongService {
   constructor(private http: HttpClient , private router: Router) { }
 
   getAllSongsByLastPlayed(): Observable<Song[]>{
-    let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs/played';
+    let url = 'http://' + environment.restApiHost + ':' + environment.restApiPort + '/api/songs/played';
     return this.http.get<SongInterface[]>(url)
       .pipe(map( responseData => {
         let songs: Song[] = [];
@@ -29,7 +29,7 @@ export class SongService {
       }));
   }
   getAllSongsWithinDates(from: Date, to: Date): Observable<Song[]>{
-    let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs/' + from.toISOString().slice(0,10)+'/'+ to.toISOString().slice(0,10);
+    let url = 'http://' + environment.restApiHost + ':' + environment.restApiPort + '/api/songs/' + from.toISOString().slice(0,10)+'/'+ to.toISOString().slice(0,10);
     return this.http.get<SongInterface[]>(url)
       .pipe(map( responseData => {
         let songs: Song[] = [];
@@ -45,7 +45,7 @@ export class SongService {
   }
 
   getSongById(id: string): Observable<Song>{
-    let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs/' + id;
+    let url = 'http://' + environment.restApiHost + ':' + environment.restApiPort + '/api/songs/' + id;
     return  this.http.get<SongInterface>(url)
       .pipe(map(responseData => {
         let p: Played[] = [];
@@ -61,7 +61,7 @@ export class SongService {
   }
 
   getSongByTitle(title: string): Observable<Song[]>{
-    let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs/title/' + title;
+    let url = 'http://' + environment.restApiHost + ':' + environment.restApiPort + '/api/songs/title/' + title;
     return this.http.get<SongInterface[]>(url)
       .pipe(map( responseData => {
         let songs: Song[] = [];
@@ -79,7 +79,7 @@ export class SongService {
   }
 
   getSongsByArtist(title: string): Observable<Song[]>{
-    let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs/artist/' + title;
+    let url = 'http://' + environment.restApiHost + ':' + environment.restApiPort + '/api/songs/artist/' + title;
     return this.http.get<SongInterface[]>(url)
       .pipe(map( responseData => {
         let songs: Song[] = [];
@@ -97,33 +97,16 @@ export class SongService {
   }
 
   public updateSong(song: Song){
-    let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs';
-    console.log("url = " + url);
-    console.log("song = " + JSON.stringify(song));
+    let url = 'http://' + environment.restApiHost + ':' + environment.restApiPort + '/api/songs';
+    
     this.http.put(url,song).subscribe(() => {
-      console.log("success!");
-    },() => {
-      console.log("error!");
+      console.log("success on update!");
+    },(e) => {
+      console.log("error on update!");
+      console.log(e);
     });
-    console.log("I'm after the push!");
   }
-
-  // public createSong(title: string, artist: string, aka : string) {
-  //   let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs';
-  //   console.log("url = " + url);
-  //   let akaArray = aka.split(",");
-  //   let playedArray : Played[] = [];
-  //   let song = new Song("",title, artist, akaArray,playedArray);
-  //   console.log(song);
-  //   console.log(url);
-  //   this.http.post(url, song).subscribe(() => {
-  //     console.log("success!");
-  //   }, () => {
-  //     console.log("error!");
-  //   });
-  //   console.log("I'm after the push for create song!");
-  // }
-
+  
   public createSong(title: string, artist: string, aka : string, note: string, played: Date,ser_01: string,ser_02: string,
                     ser_03: string,ser_04: string,ser_05: string,ser_06: string,ser_07: string,ser_08: string,ser_09: string,
                     ser_10: string,ser_11: string,ser_12: string,ser_13: string,ser_14: string,ser_15: string,ser_16: string,
@@ -135,7 +118,7 @@ export class SongService {
                     ser_52: string,ser_53: string,ser_54: string,ser_55: string,ser_56: string,ser_57: string,ser_58: string,
                     ser_59: string,ser_60: string,ser_61: string,ser_62: string,ser_63: string,ser_64: string,ser_65: string,
                     ser_66: string,ser_67: string,ser_68: string,ser_69: string,ser_70: string) {
-    let url = 'http://' + environment.host + ':' + environment.restApiPort + '/api/songs';
+    let url = 'http://' + environment.restApiHost + ':' + environment.restApiPort + '/api/songs';
     let akaArray = aka.split(",");
 
     let tempSeries : string = "";
@@ -226,8 +209,7 @@ export class SongService {
         .then(()=>{
           window.location.reload();
         });
-    });
-    console.log("I'm after the push for create song!");
+    })
   }
   private prepSeriesString(tempSeries: string, seriesEntry: string): string{
     if(seriesEntry){
@@ -239,5 +221,4 @@ export class SongService {
     }
     return tempSeries;
   }
-
 }

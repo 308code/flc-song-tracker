@@ -123,10 +123,7 @@ export class PlayedCreateComponent implements OnInit {
   }
 
   deletePlayedEntry(pos: number){
-    console.log("POS = " + pos);
-    console.log("BEFORE = " + JSON.stringify(this.song.getPlayed()));
     this.song.getPlayed().splice(pos,1);
-    console.log(" AFTER = " + JSON.stringify(this.song.getPlayed()));
     this.songService.updateSong(this.song);
     this.router.navigate(['/'])
       .then(() => {
@@ -371,7 +368,9 @@ export class PlayedCreateComponent implements OnInit {
     let temp : Date = new Date();
     temp.toLocaleString('en-US', { timeZone: 'America/New_York' });
     let tempMonth = parseInt(newPlayedDate.toISOString().slice(5,7)) - 1;
-    temp.setFullYear(newPlayedDate.toISOString().slice(0,4),tempMonth,newPlayedDate.toISOString().slice(8,10));
+    let tempDate = parseInt(newPlayedDate.toISOString().slice(8,10));
+    
+    temp.setFullYear(newPlayedDate.toISOString().slice(0,4),tempMonth,tempDate);
     let newSeries: string = "";
     if(this.series_0?.nativeElement.value.trim().length > 0){
       newSeries = newSeries.concat(this.series_0?.nativeElement.value.trim());

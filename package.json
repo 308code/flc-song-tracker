@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "buildwithbase" : "ng build --base-href /flc-song-tracker/" ,
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
